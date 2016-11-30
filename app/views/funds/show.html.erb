@@ -29,3 +29,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Fund has many allocations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Allocations
+      </li>
+
+      <% @fund.allocations.each do |allocation| %>
+        <li class="list-group-item">
+          <a href="/allocations/<%= allocation.id %>">
+            <%= allocation.client_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/allocations/<%= allocation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/allocations/<%= allocation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_allocation/<%= allocation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Fund has many historicalperformances -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Historicalperformances
+      </li>
+
+      <% @fund.historicalperformances.each do |historicalperformance| %>
+        <li class="list-group-item">
+          <a href="/historicalperformances/<%= historicalperformance.id %>">
+            <%= historicalperformance.fund_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/historicalperformances/<%= historicalperformance.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/historicalperformances/<%= historicalperformance.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_historicalperformance/<%= historicalperformance.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Fund has many clients -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Clients
+      </li>
+
+      <% @fund.clients.each do |client| %>
+        <li class="list-group-item">
+          <a href="/clients/<%= client.id %>">
+            <%= client.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/clients/<%= client.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/clients/<%= client.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_client/<%= client.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

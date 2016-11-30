@@ -35,3 +35,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Client has many allocations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Allocations
+      </li>
+
+      <% @client.allocations.each do |allocation| %>
+        <li class="list-group-item">
+          <a href="/allocations/<%= allocation.id %>">
+            <%= allocation.client_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/allocations/<%= allocation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/allocations/<%= allocation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_allocation/<%= allocation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Client has many moneymanagers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Moneymanagers
+      </li>
+
+      <% @client.moneymanagers.each do |fund| %>
+        <li class="list-group-item">
+          <a href="/funds/<%= fund.id %>">
+            <%= fund.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/funds/<%= fund.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/funds/<%= fund.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_fund/<%= fund.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
