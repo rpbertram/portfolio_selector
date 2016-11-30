@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :current_user_must_be_client_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_client_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_client_advisor
     client = Client.find(params[:id])
@@ -10,8 +10,8 @@ class ClientsController < ApplicationController
   end
 
   def index
-    @q = Client.ransack(params[:q])
-    @clients = @q.result(:distinct => true).includes(:allocations, :advisor, :moneymanagers).page(params[:page]).per(10)
+    @q = current_user.clients.ransack(params[:q])
+      @clients = @q.result(:distinct => true).includes(:allocations, :advisor, :fundselections).page(params[:page]).per(10)
 
     render("clients/index.html.erb")
   end

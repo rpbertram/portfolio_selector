@@ -76,13 +76,48 @@
       </script>
 
         <div class="form-group">
-      <%= f.label :advisor_email_cont, "Advisor email contains" %>
-      <%= f.text_field :advisor_email_cont, :class => "form-control", :placeholder => "Advisor email contains" %>
-    </div>
+          <%= f.label :created_at, "Advisor Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='advisorgteqcreated_atPicker'>
+                  <%= f.text_field :advisor_created_at_gteq, :class => "form-control", :placeholder => "Advisor Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='advisorlteqcreated_atPicker'>
+                  <%= f.text_field :advisor_created_at_lteq, :class => "form-control", :placeholder => "Advisor Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#advisorgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#advisorlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#advisorgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#advisorlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#advisorlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#advisorgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
 
 <div class="form-group">
-      <%= f.label :moneymanagers_name_cont, "Fund name contains" %>
-      <%= f.text_field :moneymanagers_name_cont, :class => "form-control", :placeholder => "Fund name contains" %>
+      <%= f.label :fundselections_name_cont, "Fund name contains" %>
+      <%= f.text_field :fundselections_name_cont, :class => "form-control", :placeholder => "Fund name contains" %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
@@ -112,7 +147,7 @@
         <td>
           <% if client.advisor.present? %>
             <a href="/advisors/<%= client.advisor.id %>">
-              <%= client.advisor.email %>
+              <%= client.advisor.created_at %>
             </a>
           <% end %>
         </td>

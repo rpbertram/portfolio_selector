@@ -15,4 +15,16 @@ class Fund < ApplicationRecord
 
   # Validations
 
+  validates :name, :uniqueness => true
+
+  validates :name, :presence => true
+
+  validates :proxyflag, :presence => true
+
+  validates :proxyflag, :numericality => { :less_than_or_equal_to => 1 }
+
+  validates :proxyflag, :inclusion => { :in => [ '0', '1' ]  }
+
+  validates :risktolerance, :presence => true
+
 end

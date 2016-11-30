@@ -66,8 +66,8 @@
       </script>
 
         <div class="form-group">
-      <%= f.label :moneymanager_name_cont, "Fund name contains" %>
-      <%= f.text_field :moneymanager_name_cont, :class => "form-control", :placeholder => "Fund name contains" %>
+      <%= f.label :fund_name_cont, "Fund name contains" %>
+      <%= f.text_field :fund_name_cont, :class => "form-control", :placeholder => "Fund name contains" %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
@@ -93,9 +93,9 @@
       <% @historicalperformances.each do |historicalperformance| %>
       <tr>
         <td>
-          <% if historicalperformance.moneymanager.present? %>
-            <a href="/funds/<%= historicalperformance.moneymanager.id %>">
-              <%= historicalperformance.moneymanager.name %>
+          <% if historicalperformance.fund.present? %>
+            <a href="/funds/<%= historicalperformance.fund.id %>">
+              <%= historicalperformance.fund.name %>
             </a>
           <% end %>
         </td>
