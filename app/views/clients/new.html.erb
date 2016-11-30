@@ -24,7 +24,7 @@
           Advisor
         </label>
 
-        <input type="text" id="advisor_id" name="advisor_id" placeholder="Advisor" class="form-control" value="<%= @client.advisor_id %>">
+        <%= select_tag(:advisor_id, options_from_collection_for_select(Advisor.all, :id, :email, @client.advisor_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for clientname -->
