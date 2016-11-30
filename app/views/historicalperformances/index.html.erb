@@ -17,7 +17,7 @@
 
       <% @historicalperformances.each do |historicalperformance| %>
       <tr>
-        <td><%= historicalperformance.fund_id %></td>
+        <td><%= historicalperformance.moneymanager.name %></td>
         <td><%= historicalperformance.month %></td>
         <td><%= historicalperformance.performance %></td>
         <td>
