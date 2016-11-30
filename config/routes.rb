@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :advisors
+  # Routes for the Advisor resource:
+  # READ
+  get "/advisors", :controller => "advisors", :action => "index"
+  get "/advisors/:id", :controller => "advisors", :action => "show"
+
+
   # Routes for the Fund resource:
   # CREATE
   get "/funds/new", :controller => "funds", :action => "new"
