@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Historicalperformance resource:
+  # CREATE
+  get "/historicalperformances/new", :controller => "historicalperformances", :action => "new"
+  post "/create_historicalperformance", :controller => "historicalperformances", :action => "create"
+
+  # READ
+  get "/historicalperformances", :controller => "historicalperformances", :action => "index"
+  get "/historicalperformances/:id", :controller => "historicalperformances", :action => "show"
+
+  # UPDATE
+  get "/historicalperformances/:id/edit", :controller => "historicalperformances", :action => "edit"
+  post "/update_historicalperformance/:id", :controller => "historicalperformances", :action => "update"
+
+  # DELETE
+  get "/delete_historicalperformance/:id", :controller => "historicalperformances", :action => "destroy"
+  #------------------------------
+
   # Routes for the Allocation resource:
   # CREATE
   get "/allocations/new", :controller => "allocations", :action => "new"

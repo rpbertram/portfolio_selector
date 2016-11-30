@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Historicalperformance #<%= @historicalperformance.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Fund</dt>
+      <dd><%= @historicalperformance.fund_id %></dd>
+
+      <dt>Month</dt>
+      <dd><%= @historicalperformance.month %></dd>
+
+      <dt>Performance</dt>
+      <dd><%= @historicalperformance.performance %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/historicalperformances" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/historicalperformances/<%= @historicalperformance.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_historicalperformance/<%= @historicalperformance.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
