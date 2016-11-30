@@ -1,7 +1,7 @@
 class HistoricalperformancesController < ApplicationController
   def index
     @q = Historicalperformance.ransack(params[:q])
-    @historicalperformances = @q.result(:distinct => true).includes(:moneymanager).page(params[:page]).per(10)
+    @historicalperformances = @q.result(:distinct => true).includes(:fund).page(params[:page]).per(10)
 
     render("historicalperformances/index.html.erb")
   end
