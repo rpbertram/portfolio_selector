@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Allocation resource:
+  # CREATE
+  get "/allocations/new", :controller => "allocations", :action => "new"
+  post "/create_allocation", :controller => "allocations", :action => "create"
+
+  # READ
+  get "/allocations", :controller => "allocations", :action => "index"
+  get "/allocations/:id", :controller => "allocations", :action => "show"
+
+  # UPDATE
+  get "/allocations/:id/edit", :controller => "allocations", :action => "edit"
+  post "/update_allocation/:id", :controller => "allocations", :action => "update"
+
+  # DELETE
+  get "/delete_allocation/:id", :controller => "allocations", :action => "destroy"
+  #------------------------------
+
   devise_for :advisors
   # Routes for the Advisor resource:
   # READ
