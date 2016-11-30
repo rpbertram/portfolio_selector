@@ -1,6 +1,6 @@
 class AdvisorsController < ApplicationController
   def index
-    @advisors = Advisor.all
+    @advisors = Advisor.page(params[:page]).per(10)
   end
 
   def show

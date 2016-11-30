@@ -1,6 +1,6 @@
 class AllocationsController < ApplicationController
   def index
-    @allocations = Allocation.all
+    @allocations = Allocation.page(params[:page]).per(10)
 
     render("allocations/index.html.erb")
   end

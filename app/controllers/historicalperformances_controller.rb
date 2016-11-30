@@ -1,6 +1,6 @@
 class HistoricalperformancesController < ApplicationController
   def index
-    @historicalperformances = Historicalperformance.all
+    @historicalperformances = Historicalperformance.page(params[:page]).per(10)
 
     render("historicalperformances/index.html.erb")
   end
