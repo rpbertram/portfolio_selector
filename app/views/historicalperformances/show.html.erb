@@ -7,9 +7,9 @@
     <dl class="dl-horizontal">
       <dt>Fund</dt>
       <dd>
-        <% if @historicalperformance.moneymanager.present? %>
+        <% if @historicalperformance.fund.present? %>
           <a href="/funds/<%= @historicalperformance.fund_id %>">
-            <%= @historicalperformance.moneymanager.name %>
+            <%= @historicalperformance.fund.name %>
           </a>
         <% end %>
       </dd>
