@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Client #<%= @client.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Advisor</dt>
+      <dd><%= @client.advisor_id %></dd>
+
+      <dt>Clientname</dt>
+      <dd><%= @client.clientname %></dd>
+
+      <dt>Accountsize</dt>
+      <dd><%= @client.accountsize %></dd>
+
+      <dt>Mgmt fee</dt>
+      <dd><%= @client.mgmt_fee %></dd>
+
+      <dt>Risktolerance</dt>
+      <dd><%= @client.risktolerance %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/clients" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/clients/<%= @client.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_client/<%= @client.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
