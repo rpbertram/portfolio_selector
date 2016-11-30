@@ -19,7 +19,7 @@
 
       <% @clients.each do |client| %>
       <tr>
-        <td><%= client.advisor_id %></td>
+        <td><%= client.advisor.email %></td>
         <td><%= client.clientname %></td>
         <td><%= client.accountsize %></td>
         <td><%= client.mgmt_fee %></td>
