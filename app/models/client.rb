@@ -8,6 +8,10 @@ class Client < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :moneymanagers,
+             :through => :allocations,
+             :source => :moneymanager
+
   # Validations
 
 end
