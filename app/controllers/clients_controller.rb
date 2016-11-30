@@ -1,4 +1,14 @@
 class ClientsController < ApplicationController
+  before_action :current_user_must_be_client_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_client_advisor
+    client = Client.find(params[:id])
+
+    unless current_user == client.advisor
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @clients = Client.all
 

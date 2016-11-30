@@ -26,8 +26,11 @@
         <td><%= client.risktolerance %></td>
         <td>
           <a href="/clients/<%= client.id %>" class="btn btn-primary">Show</a>
-          <a href="/clients/<%= client.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_client/<%= client.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == client.advisor %>
+            <a href="/clients/<%= client.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_client/<%= client.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
