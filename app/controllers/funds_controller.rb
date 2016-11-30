@@ -1,6 +1,7 @@
 class FundsController < ApplicationController
   def index
-    @funds = Fund.page(params[:page]).per(10)
+    @q = Fund.ransack(params[:q])
+    @funds = @q.result(:distinct => true).includes(:allocations, :historicalperformances, :clients).page(params[:page]).per(10)
 
     render("funds/index.html.erb")
   end

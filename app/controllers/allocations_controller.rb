@@ -1,6 +1,7 @@
 class AllocationsController < ApplicationController
   def index
-    @allocations = Allocation.page(params[:page]).per(10)
+    @q = Allocation.ransack(params[:q])
+    @allocations = @q.result(:distinct => true).includes(:client, :moneymanager).page(params[:page]).per(10)
 
     render("allocations/index.html.erb")
   end
