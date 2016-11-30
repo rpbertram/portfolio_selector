@@ -33,7 +33,7 @@
           Fund
         </label>
 
-        <input type="text" id="fund_id" name="fund_id" placeholder="Fund" class="form-control" value="<%= @allocation.fund_id %>">
+        <%= select_tag(:fund_id, options_from_collection_for_select(Fund.all, :id, :name, @allocation.fund_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for percentage -->
