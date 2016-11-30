@@ -19,7 +19,13 @@
 
       <% @clients.each do |client| %>
       <tr>
-        <td><%= client.advisor.email %></td>
+        <td>
+          <% if client.advisor.present? %>
+            <a href="/advisors/<%= client.advisor.id %>">
+              <%= client.advisor.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= client.clientname %></td>
         <td><%= client.accountsize %></td>
         <td><%= client.mgmt_fee %></td>
