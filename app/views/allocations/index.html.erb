@@ -17,7 +17,7 @@
 
       <% @allocations.each do |allocation| %>
       <tr>
-        <td><%= allocation.client_id %></td>
+        <td><%= allocation.client.created_at %></td>
         <td><%= allocation.fund_id %></td>
         <td><%= allocation.percentage %></td>
         <td>
