@@ -16,6 +16,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @allocation = Allocation.new
     @client = Client.find(params[:id])
 
     render("clients/show.html.erb")

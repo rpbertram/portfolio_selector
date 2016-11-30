@@ -65,6 +65,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_allocation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for client_id -->
+      <input type="hidden" name="client_id" value="<%= @client.id %>">
+
+      <!-- Label and input for fund_id -->
+      <div class="form-group">
+        <label for="fund_id" class="control-label">
+          Fund
+        </label>
+
+        <%= select_tag(:fund_id, options_from_collection_for_select(Fund.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for percentage -->
+      <div class="form-group">
+        <label for="percentage" class="control-label">
+          Percentage
+        </label>
+
+        <input type="text" id="percentage" name="percentage" placeholder="Percentage" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Allocation
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -57,6 +57,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_allocation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for client_id -->
+      <div class="form-group">
+        <label for="client_id" class="control-label">
+          Client
+        </label>
+
+        <%= select_tag(:client_id, options_from_collection_for_select(Client.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for fund_id -->
+      <input type="hidden" name="fund_id" value="<%= @fund.id %>">
+
+      <!-- Label and input for percentage -->
+      <div class="form-group">
+        <label for="percentage" class="control-label">
+          Percentage
+        </label>
+
+        <input type="text" id="percentage" name="percentage" placeholder="Percentage" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Allocation
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +120,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_historicalperformance" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for fund_id -->
+      <input type="hidden" name="fund_id" value="<%= @fund.id %>">
+
+      <!-- Label and input for month -->
+      <div class="form-group">
+        <label for="month" class="control-label">
+          Month
+        </label>
+
+        <input type="text" id="month" name="month" placeholder="Month" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for performance -->
+      <div class="form-group">
+        <label for="performance" class="control-label">
+          Performance
+        </label>
+
+        <input type="text" id="performance" name="performance" placeholder="Performance" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Historicalperformance
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
