@@ -11,4 +11,8 @@ class Allocation < ApplicationRecord
 
   # Validations
 
+  validates :percentage, :presence => true
+
+  validates :percentage, :numericality => { :less_than_or_equal_to => 1 }
+
 end
