@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Fund #<%= @fund.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @fund.name %></dd>
+
+      <dt>Risktolerance</dt>
+      <dd><%= @fund.risktolerance %></dd>
+
+      <dt>Proxyflag</dt>
+      <dd><%= @fund.proxyflag %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/funds" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/funds/<%= @fund.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_fund/<%= @fund.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
