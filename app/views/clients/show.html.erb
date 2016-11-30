@@ -9,7 +9,7 @@
       <dd>
         <% if @client.advisor.present? %>
           <a href="/advisors/<%= @client.advisor_id %>">
-            <%= @client.advisor.email %>
+            <%= @client.advisor.created_at %>
           </a>
         <% end %>
       </dd>
