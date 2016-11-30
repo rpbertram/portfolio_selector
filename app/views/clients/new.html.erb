@@ -19,13 +19,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for advisor_id -->
-      <div class="form-group">
-        <label for="advisor_id" class="control-label">
-          Advisor
-        </label>
-
-        <%= select_tag(:advisor_id, options_from_collection_for_select(Advisor.all, :id, :email, @client.advisor_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="advisor_id" value="<%= current_user.id %>">
 
       <!-- Label and input for clientname -->
       <div class="form-group">
