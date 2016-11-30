@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "clients#index"
   # Routes for the Historicalperformance resource:
   # CREATE
   get "/historicalperformances/new", :controller => "historicalperformances", :action => "new"
