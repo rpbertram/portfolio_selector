@@ -1,17 +1,17 @@
 class ClientsController < ApplicationController
   before_action :current_user_must_be_client_user, :only => [:show, :edit, :update, :destroy]
 
-  def current_user_must_be_client_advisor
+  def current_user_must_be_client_user
     client = Client.find(params[:id])
 
-    unless current_user == client.advisor
+    unless current_user == client.user
       redirect_to :back, :alert => "You are not authorized for that."
     end
   end
 
   def index
     @q = current_user.clients.ransack(params[:q])
-      @clients = @q.result(:distinct => true).includes(:allocations, :advisor, :fundselections).page(params[:page]).per(10)
+      @clients = @q.result(:distinct => true).includes(:allocations, :user, :fundselections).page(params[:page]).per(10)
 
     render("clients/index.html.erb")
   end
@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new
 
-    @client.advisor_id = params[:advisor_id]
+    @client.user_id = params[:user_id]
     @client.clientname = params[:clientname]
     @client.accountsize = params[:accountsize]
     @client.mgmt_fee = params[:mgmt_fee]
@@ -63,7 +63,7 @@ class ClientsController < ApplicationController
   def update
     @client = Client.find(params[:id])
 
-    @client.advisor_id = params[:advisor_id]
+    @client.user_id = params[:user_id]
     @client.clientname = params[:clientname]
     @client.accountsize = params[:accountsize]
     @client.mgmt_fee = params[:mgmt_fee]

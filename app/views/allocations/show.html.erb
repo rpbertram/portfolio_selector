@@ -16,9 +16,9 @@
 
       <dt>Fund</dt>
       <dd>
-        <% if @allocation.moneymanager.present? %>
+        <% if @allocation.fund.present? %>
           <a href="/funds/<%= @allocation.fund_id %>">
-            <%= @allocation.moneymanager.name %>
+            <%= @allocation.fund.name %>
           </a>
         <% end %>
       </dd>
