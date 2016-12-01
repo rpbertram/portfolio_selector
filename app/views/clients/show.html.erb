@@ -9,7 +9,7 @@
       <dd>
         <% if @client.advisor.present? %>
           <a href="/advisors/<%= @client.advisor_id %>">
-            <%= @client.advisor.email %>
+            <%= @client.advisor.created_at %>
           </a>
         <% end %>
       </dd>
@@ -107,16 +107,16 @@
   </div>
 </div>
 
-<!-- A Client has many moneymanagers -->
+<!-- A Client has many fundselections -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Moneymanagers
+        Fundselections
       </li>
 
-      <% @client.moneymanagers.each do |fund| %>
+      <% @client.fundselections.each do |fund| %>
         <li class="list-group-item">
           <a href="/funds/<%= fund.id %>">
             <%= fund.name %>
