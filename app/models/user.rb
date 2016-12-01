@@ -1,4 +1,4 @@
-class Advisor < ApplicationRecord
+class User < ApplicationRecord
   # Direct associations
 
   has_many   :clients,

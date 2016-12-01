@@ -1,33 +1,33 @@
 <div class="page-header">
-  <h3>Advisor #<%= @advisor.id %></h3>
+  <h3>User #<%= @user.id %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Firstname</dt>
-      <dd><%= @advisor.firstname %></dd>
+      <dd><%= @user.firstname %></dd>
 
       <dt>Lastname</dt>
-      <dd><%= @advisor.lastname %></dd>
+      <dd><%= @user.lastname %></dd>
 
       <dt>Email</dt>
-      <dd><%= @advisor.email %></dd>
+      <dd><%= @user.email %></dd>
 
       <dt>Password</dt>
-      <dd><%= @advisor.password %></dd>
+      <dd><%= @user.password %></dd>
 
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/advisors" class="btn btn-primary">
+      <a href="/users" class="btn btn-primary">
         Back
       </a>
     </div>
   </div>
 </div>
 
-<!-- A Advisor has many clients -->
+<!-- A User has many clients -->
 
 <div class="row">
   <div class="col-md-12">
@@ -36,7 +36,7 @@
         Clients
       </li>
 
-      <% @advisor.clients.each do |client| %>
+      <% @user.clients.each do |client| %>
         <li class="list-group-item">
           <a href="/clients/<%= client.id %>">
             <%= client.created_at %>
@@ -45,7 +45,7 @@
             <a href="/clients/<%= client.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == client.advisor %>
+            <%if current_user == client.user %>
               <a href="/clients/<%= client.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>

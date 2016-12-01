@@ -1,4 +1,4 @@
-ActiveAdmin.register Advisor do
+ActiveAdmin.register User do
 
  permit_params :firstname, :lastname, :email, :password
 

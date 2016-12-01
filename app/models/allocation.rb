@@ -1,9 +1,7 @@
 class Allocation < ApplicationRecord
   # Direct associations
 
-  belongs_to :moneymanager,
-             :class_name => "Fund",
-             :foreign_key => "fund_id"
+  belongs_to :fund
 
   belongs_to :client,
              :counter_cache => true

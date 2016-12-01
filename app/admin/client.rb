@@ -1,6 +1,6 @@
 ActiveAdmin.register Client do
 
- permit_params :advisor_id, :clientname, :accountsize, :mgmt_fee, :risktolerance
+ permit_params :user_id, :clientname, :accountsize, :mgmt_fee, :risktolerance
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

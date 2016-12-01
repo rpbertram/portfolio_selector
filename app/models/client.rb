@@ -1,7 +1,7 @@
 class Client < ApplicationRecord
   # Direct associations
 
-  belongs_to :advisor,
+  belongs_to :user,
              :counter_cache => true
 
   has_many   :allocations,
@@ -11,17 +11,13 @@ class Client < ApplicationRecord
 
   has_many   :fundselections,
              :through => :allocations,
-             :source => :moneymanager
+             :source => :fund
 
   # Validations
 
   validates :accountsize, :presence => true
 
   validates :accountsize, :numericality => { :greater_than => 25000 }
-
-  validates :advisor_id, :presence => true
-
-  validates :advisor_id, :length => { :minimum => 2 }
 
   validates :clientname, :uniqueness => true
 
@@ -32,5 +28,9 @@ class Client < ApplicationRecord
   validates :mgmt_fee, :numericality => { :less_than_or_equal_to => 2, :greater_than_or_equal_to => 0 }
 
   validates :risktolerance, :presence => true
+
+  validates :user_id, :presence => true
+
+  validates :user_id, :length => { :minimum => 2 }
 
 end

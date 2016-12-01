@@ -36,11 +36,11 @@ Rails.application.routes.draw do
   get "/delete_allocation/:id", :controller => "allocations", :action => "destroy"
   #------------------------------
 
-  devise_for :advisors
-  # Routes for the Advisor resource:
+  devise_for :users
+  # Routes for the User resource:
   # READ
-  get "/advisors", :controller => "advisors", :action => "index"
-  get "/advisors/:id", :controller => "advisors", :action => "show"
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
 
 
   # Routes for the Fund resource:
