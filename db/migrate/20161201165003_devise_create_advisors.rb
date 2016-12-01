@@ -30,10 +30,10 @@ class DeviseCreateAdvisors < ActiveRecord::Migration[5.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :email
-      t.string :password
       t.string :firstname
       t.string :lastname
+      t.string :email
+      t.string :password
 
       t.timestamps null: false
     end

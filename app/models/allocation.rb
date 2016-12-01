@@ -5,10 +5,15 @@ class Allocation < ApplicationRecord
              :class_name => "Fund",
              :foreign_key => "fund_id"
 
-  belongs_to :client
+  belongs_to :client,
+             :counter_cache => true
 
   # Indirect associations
 
   # Validations
+
+  validates :percentage, :presence => true
+
+  validates :percentage, :numericality => { :less_than_or_equal_to => 1 }
 
 end
